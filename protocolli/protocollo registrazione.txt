@@ -1,0 +1,22 @@
+1)<connessione>
+	  <richiesta>
+		  <porta> xxx </porta>
+		  <ip>  xxx </ip>
+	  </richiesta>
+2)	<risposta>
+		  <porta> xxx </porta>
+		  <ip>  xxx </ip>
+          <cont> YES/NO </cont>
+    </risposta>
+</connessione>
+ 3) <registrazione> 
+	   <richiesta>
+                                    <codice> 7GYHGYSD </codice>
+		   <username> AAA </username>
+		   <password> 1234 </username>
+	   </richiesta>
+4)      <risposta>
+		    <cont> codice valido/non valido </cont>
+		    <tipo> ADMIN/USER/NULL </tipo>  
+        </risposta>
+</registrazione>
