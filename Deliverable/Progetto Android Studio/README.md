@@ -1,10 +1,10 @@
 # Progetto Android Studio
 ## Activity Implementate
-* Login
+* Login -> Fornaro
+* Register -> Fornaro
 
 ## Activity Da Implementare
 * Home
 * Push
-* Register
 * View
 * ViewDone
