@@ -21,7 +21,9 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".PushActivity" />
         <activity android:name=".ViewActivity" />
-        <activity android:name=".ViewDoneActivity"></activity>
+        <activity android:name=".ViewDoneActivity" />
+        <activity android:name=".FindActivity" />
+        <activity android:name=".ChangeStatusActivity"></activity>
     </application>
 
 </manifest>
