@@ -4,7 +4,11 @@
 * Register -> Fornaro
 
 ## Activity Da Implementare
-* Home
-* Push
-* View
-* ViewDone
+* Home -> 
+* Login-> Fornaro
+* Registrazione -> Fornaro
+* Push -> Della Torre
+* View -> Zocca
+* Find -> Marzorati
+* ViewDone -> Marzorati
+* Modifica stato segnalazione -> Marzorati 
