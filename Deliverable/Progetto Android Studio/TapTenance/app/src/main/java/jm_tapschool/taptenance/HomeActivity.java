@@ -16,10 +16,9 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
         String username = intent.getStringExtra("username");
 
-        String msg = "Benvenuto, " + name;
+        String msg = "Benvenuto, " + username;
         setTitle(msg);
     }
 }

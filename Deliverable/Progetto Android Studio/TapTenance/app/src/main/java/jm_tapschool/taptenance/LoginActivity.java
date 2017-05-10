@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         final Button bLogin = (Button) findViewById(R.id.bLogin);
         final TextView registerLink = (TextView) findViewById(R.id.tvRegisterHere);
+        final TextView textViewRisultato = (TextView) findViewById(R.id.tvResult);
 
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,42 +42,33 @@ public class LoginActivity extends AppCompatActivity {
         bLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String username = etUsername.getText().toString();
-                final String password = etPassword.getText().toString();
+                final String username = etUsername.getText().toString().toString();
+                final String password = etPassword.getText().toString().toString();
 
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            //siccome la risposta è un "success" faccio così:
-                            boolean success = jsonResponse.getBoolean("success");
+                // creo oggetto per comunicare con il web service che lavora in un thread di tipo AsyncTask
+                CallWebService callWS = new CallWebService();
 
-                            if(success) {   //se il login è avvenuto con successo
-                                // prendo le informazioni che mi servono e faccio partire l'activity home
-                                String name = jsonResponse.getString("name");
-                                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
-                                intent.putExtra("name",name);
-                                intent.putExtra("username",username);
-                                LoginActivity.this.startActivity(intent);
-                                LoginActivity.this.finish();
-                            } else {    //altrimenti mostro un popup con il messaggio d'errore
-                                AlertDialog.Builder dialogErrore = new AlertDialog.Builder(LoginActivity.this);
-                                dialogErrore.setMessage("Errore nel Login")
-                                        .setNegativeButton("Riprova", null)
-                                        .create()
-                                        .show();
-                            }
+                // imposto textView per permettere al thread che comunica con il web service di visualizzare il risultato
+                callWS.setTextViewRisultato(textViewRisultato);
 
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
+                // richiamo il thread di tipo AsyncTask chiedendo l'esecuzione del web service
+                callWS.execute(CallWebService.METHOD_NAME_LOGIN, username, password);
 
-                LoginRequest loginRequest = new LoginRequest(username, password, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(LoginActivity.this);
-                queue.add(loginRequest);
+                // vedo se ha trovato l'utente, passo all'activity home
+                int IdUtente = callWS.getIdUtente();
+                if(IdUtente!=-1){
+                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                    intent.putExtra("userid",Integer.toString(IdUtente));
+                    intent.putExtra("username",username);
+                    LoginActivity.this.startActivity(intent);
+                    LoginActivity.this.finish();
+                } else {
+                    AlertDialog.Builder dialogErrore = new AlertDialog.Builder(LoginActivity.this);
+                    dialogErrore.setMessage("Errore nel Login")
+                            .setNegativeButton("Riprova", null)
+                            .create()
+                            .show();
+                }
             }
         });
     }

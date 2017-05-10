@@ -34,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String username = etUsername.getText().toString();
                 final String password = etPassword.getText().toString();
 
+                /*
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {   //in caso di risposta dalla pagina PHP
@@ -63,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
                 RegisterRequest registerRequest = new RegisterRequest(name, username, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
                 queue.add(registerRequest);
-
+                */
             }
         });
     }
