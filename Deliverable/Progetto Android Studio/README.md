@@ -1,14 +1,11 @@
-# Progetto Android Studio
-## Activity Implementate
-* Login -> Fornaro
-* Register -> Fornaro
+# Progetto Android Studio - Directory Ufficiale
 
-## Activity Da Implementare
-* Home -> 
+## Lista Activity
+* Home -> Fornaro
 * Login-> Fornaro
 * Registrazione -> Fornaro
 * Push -> Della Torre
 * View -> Zocca
 * Find -> Marzorati
 * ViewDone -> Marzorati
-* Modifica stato segnalazione -> Marzorati 
+* ChangeStatus -> Marzorati
