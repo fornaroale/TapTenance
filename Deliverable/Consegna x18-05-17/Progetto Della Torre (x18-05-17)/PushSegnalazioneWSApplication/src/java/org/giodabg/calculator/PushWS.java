@@ -53,7 +53,7 @@ public class PushWS {
             stmt = conn.createStatement();
 
             String sql = "INSERT INTO Segnalazione(titolo, descrizione, lotto, id_utente) " +
-                         "VALUES ("+titolo+", "+descrizione_problema+", "+lotto+", "+utente+")";
+                         "VALUES ('"+titolo+ "', '" +descrizione_problema+ "', '" +lotto+ "', '"+utente+"')";
             
             stmt.executeUpdate(sql);
             
