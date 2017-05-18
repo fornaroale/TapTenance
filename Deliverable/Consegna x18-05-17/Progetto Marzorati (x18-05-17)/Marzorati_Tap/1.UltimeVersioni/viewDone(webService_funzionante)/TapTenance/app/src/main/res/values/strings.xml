@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">TapTenance</string>
+    <string name="string_ImmProfiloReg">Se vuoi, puoi selezionare un\'immagine per il tuo profilo:</string>
+    <string name="txtScegliImmagine">Scegli Immagine</string>
+    <string name="txtRegistrati">Registra</string>
+    <string name="txtNome">Nome</string>
+    <string name="txtUsername">Username</string>
+    <string name="txtPassword">Password</string>
+    <string name="txtLoginRegMsg">Non hai un account?\\r\\nRegistrati adesso!</string>
+    <string name="txtLogin">Login</string>
+    <string name="txtLoginPassword">Password</string>
+    <string name="txtLoginUsername">Username</string>
+    <string name="status">Stato</string>
+    <string name="cambiaStato">Cambia</string>
+</resources>
